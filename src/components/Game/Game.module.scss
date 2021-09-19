@@ -1,0 +1,25 @@
+.gameWrapper {
+  padding: 50px;
+  .wordButton {
+    background-color: white;
+    border: none;
+    margin: 30px;
+
+    &:hover {
+      color: gray;
+    }
+  }
+  .active {
+    background-color: yellow;
+  }
+  .good {
+    background-color: green;
+  }
+
+  .warningMessage {
+    color: #e74c3c;
+    line-height: 100%;
+    height: 100%;
+    margin-top: 15px;
+  }
+}

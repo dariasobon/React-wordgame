@@ -1,0 +1,18 @@
+.loginContainer {
+  display: flex;
+  padding: 80px;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  height: 100%;
+  .gameForm {
+    display: flex;
+    flex-direction: column;
+  }
+  .nickInput {
+    padding: 5px;
+    border-radius: 5px;
+    width: 50%;
+    margin: 20px auto;
+  }
+}
