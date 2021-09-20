@@ -4,16 +4,43 @@
     background-color: white;
     border: none;
     margin: 30px;
-
+    width: 100px;
     &:hover {
-      color: gray;
+      cursor: pointer;
     }
   }
   .active {
-    background-color: yellow;
+    border: 1px solid yellow;
+    border-radius: 10px;
   }
   .good {
-    background-color: green;
+    border: 1px solid green;
+    color: green;
+    border-radius: 10px;
+    position: relative;
+    
+    &::before {
+      content: 'Good';
+      font-weight: bold;
+      top: -30px;
+      left: 25px;
+      margin: 0 auto;
+      position: absolute;
+    }
+  }
+  .wrong {
+    border: 1px solid red;
+    color: red;
+    border-radius: 10px;
+    position: relative;
+    &::before {
+      content: 'Wrong';
+      top: -30px;
+      left: 25px;
+      font-weight: bold;
+      margin: 0 auto;
+      position: absolute;
+    }
   }
 
   .warningMessage {
