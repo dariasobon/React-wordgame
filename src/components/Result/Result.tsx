@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {Link } from 'react-router-dom';
 import styles from "./Result.module.scss"
+import { AppContext } from '../../providers/AppProvider';
 
 interface Props {
   login: string,
@@ -11,8 +12,8 @@ interface Props {
   setFinished: (val: boolean) => void;
 }
 
-const Result: React.FC<Props> = ({setFinished, login, quessed, goodUnmarked, wrongGuess, setLogin}) => {
-
+const Result: React.FC = () => {
+  const {setFinished, login, quessed, goodUnmarked, wrongGuess, setLogin} = useContext(AppContext)
   const [score, setScore] = useState(0)
   const [message, setMessage] = useState('')
 

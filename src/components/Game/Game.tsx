@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import WordSet from '../../types/wordSet';
 import styles from './Game.module.scss';
 import { Link } from 'react-router-dom';
+import { AppContext } from '../../providers/AppProvider';
 
 interface Props {
   setQuessed: (val: number) => void;
@@ -13,9 +14,10 @@ interface Props {
   wrongGuess: string[]
 }
 
-const Game: React.FC<Props> = ({ finished, setQuessed, setGoodUnmarked, setWrongGuess, setFinished, wordSet, wrongGuess }) => {
+const Game: React.FC = () => {
   const [classItems, setClassItems] = useState([] as any);
   const [selected, setSelected] = useState<string[]>([]);
+  const {finished, setQuessed, setGoodUnmarked, setWrongGuess, setFinished, wordSet, wrongGuess } = useContext(AppContext)
 
   const selectItem = (word: string, index: number): void => {
     if (!classItems.includes(index)) {

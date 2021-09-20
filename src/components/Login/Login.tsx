@@ -1,19 +1,24 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Login.module.scss';
 import getWords from '../../types/wordGameData';
 import WordSet from '../../types/wordSet';
+import { AppContext } from '../../providers/AppProvider';
 
-interface Props {
-  handleNickName: React.ChangeEventHandler<HTMLInputElement>;
-  login: string;
-  setWordSet: (value: WordSet) => void;
-}
+// interface Props {
+//   handleNickName: React.ChangeEventHandler<HTMLInputElement>;
+//   login: string;
+//   setWordSet: (value: WordSet) => void;
+// }
 
-const Login: React.FC<Props> = ({ login, handleNickName, setWordSet }) => {
-  
+const Login: React.FC = () => {
+  const {handleNickName, login, setWordSet} = useContext(AppContext)
+
+  console.log(login, 'login')
     const fetchData = async() : Promise<void>=> {
+      
       const response = await getWords();
+      console.log(response, 'response')
       setWordSet(response);
     }
   return (
