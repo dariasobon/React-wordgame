@@ -17,26 +17,13 @@ const App: React.FC = () => {
             <Switch>
             <AppProvider>
               <Route path='/' exact render={() => <Login />} />
-              <Route
-                path='/game'
-                exact
-                component={() => (
-                  <Game />
-                )}
-              />
-              <Route
-                path='/result'
-                exact
-                component={() => (
-                  <Result />
-                )}
-              />
-              </AppProvider>
-            </Switch>
-          </div>
-        </Router>
-      </div>
-    
+              <Route path='/game' exact component={() => <Game />} />
+              <Route path='/result' exact component={() => <Result />} />
+            </AppProvider>
+          </Switch>
+        </div>
+      </Router>
+    </div>
   );
 };
 

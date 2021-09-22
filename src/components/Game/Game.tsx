@@ -66,7 +66,7 @@ const Game: React.FC = () => {
         </button>
       )}
       {!finished && <h3>Your selection: {selected.join(', ')}</h3>}
-      {!wordSet.all_words && <p>if no data please use npx json-server --watch -p3001 data/db.json</p>}
+      {wordSet && !wordSet.all_words && <p>if no data please use npx json-server --watch -p3001 data/db.json</p>}
     </div>
   );
 };
