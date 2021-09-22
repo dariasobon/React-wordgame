@@ -1,23 +1,12 @@
 import React, { useState, useContext } from 'react';
-import WordSet from '../../types/wordSet';
 import styles from './Game.module.scss';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../providers/AppProvider';
 
-interface Props {
-  setQuessed: (val: number) => void;
-  setGoodUnmarked: (val: number) => void;
-  setWrongGuess: (value: (string[] | [])) => void;
-  finished: boolean;
-  setFinished: (val: boolean) => void;
-  wordSet: WordSet;
-  wrongGuess: string[]
-}
-
 const Game: React.FC = () => {
   const [classItems, setClassItems] = useState([] as any);
   const [selected, setSelected] = useState<string[]>([]);
-  const {finished, setQuessed, setGoodUnmarked, setWrongGuess, setFinished, wordSet, wrongGuess } = useContext(AppContext)
+  const { finished, setQuessed, setGoodUnmarked, setWrongGuess, setFinished, wordSet, wrongGuess } = useContext(AppContext);
 
   const selectItem = (word: string, index: number): void => {
     if (!classItems.includes(index)) {
@@ -33,7 +22,7 @@ const Game: React.FC = () => {
     setSelected([...newSelected]);
   };
 
-  const checkAnswers = () : void => {
+  const checkAnswers = (): void => {
     setClassItems([]);
     const quessed = wordSet.good_words.filter((element: string) => selected.includes(element));
     const goodUnmarkedAnswers = wordSet.good_words.filter((element: string) => !selected.includes(element));
@@ -45,16 +34,15 @@ const Game: React.FC = () => {
     setQuessed(quessed.length);
   };
 
-  
   return (
     <div className={styles.gameWrapper}>
       <h1>{wordSet.question}</h1>
-      <div className={styles.test}>
+      <div>
         {wordSet.all_words &&
           wordSet.all_words.map((word, index) => {
             const checkedByUser = classItems.includes(index) ? `${styles.active}` : '';
-            const goodClass = finished && wordSet.good_words.includes(word) ? `${styles.good}` : ''
-            const wrongClass = finished && wrongGuess.includes(word) ? `${styles.wrong}` : ''
+            const goodClass = finished && wordSet.good_words.includes(word) ? `${styles.good}` : '';
+            const wrongClass = finished && wrongGuess.includes(word) ? `${styles.wrong}` : '';
             return (
               <button
                 disabled={finished}

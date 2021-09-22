@@ -1,8 +1,5 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 import WordSet from '../types/wordSet'
-// import { ThemeProvider } from 'styled-components';
-// import planetsData from '../assets/data.json';
-// import GlobalStyles from '../globals/GlobalStyles';
 
 export const AppContext = createContext({} as ContextType);
 
@@ -23,8 +20,7 @@ type ContextType = {
 }
 
 const AppProvider: React.FC= ({ children}) => {
-  // const [isMenuOpened, setIsMenuOpened] = useState(false);
-  // const [currentPlanet, setCurrentPlanet] = useState(planetsData[0]);
+  
   const [login, setLogin] = useState('');
   const [quessed, setQuessed] = useState(0);
   const [wrongGuess, setWrongGuess] = useState([] as string[]);

@@ -50,3 +50,18 @@
     margin-top: 15px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .gameWrapper {
+    .wordButton {
+      margin: 10px;
+    }
+    .wrong, .good {
+      &::before {
+        top: 2px;
+        right: -140px;
+      }
+    }
+  }
+  
+}
